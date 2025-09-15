@@ -1,0 +1,1372 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"contact": {},
+		"title": "Jumpjoy",
+		"version": "1.0.0",
+		"description": "API documentation for Jumpjoy application"
+	},
+	"host": "jumpjoy-api.itel.dev",
+	"basePath": "/api",
+	"schemes": [
+		"https"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"produces": [
+		"application/json"
+	],
+	"securityDefinitions": {
+		"BearerAuth": {
+			"type": "apiKey",
+			"name": "Authorization",
+			"in": "header",
+			"description": "Enter 'Bearer ' followed by your token"
+		}
+	},
+	"security": [
+		{
+			"BearerAuth": []
+		}
+	],
+	"paths": {
+		"/auth/confirm-otp-register": {
+			"post": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "otp",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "userName",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Auth"
+				],
+				"description": "Xác nhận otp",
+				"operationId": "xCNhNOtp",
+				"summary": "Xác nhận otp"
+			}
+		},
+		"/auth/login": {
+			"post": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "deviceId",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "fcmToken",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "password",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "userName",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Auth"
+				],
+				"description": "Đăng nhập",
+				"operationId": "ngNhP",
+				"summary": "Đăng nhập"
+			}
+		},
+		"/auth/login-social": {
+			"post": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "fcmToken",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "fcmTokenNoti",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Auth"
+				],
+				"description": "Đăng nhập FB, GG",
+				"operationId": "ngNhPFbGg",
+				"summary": "Đăng nhập FB, GG"
+			}
+		},
+		"/auth/register": {
+			"post": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "deviceId",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "email",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "fullName",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "password",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "userName",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Auth"
+				],
+				"description": "Đăng ký",
+				"operationId": "ngK",
+				"summary": "Đăng ký"
+			}
+		},
+		"/chat-room": {
+			"get": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Chat"
+				],
+				"description": "Lấy danh sách ngừoi đang nhắn",
+				"operationId": "lYDanhSChNgOiAngNhN",
+				"summary": "Lấy danh sách ngừoi đang nhắn"
+			}
+		},
+		"/chat-room/change-noti": {
+			"post": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "chatRoomId",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "isMute",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Chat"
+				],
+				"description": "Tắt/Bật thông báo cuộc trò chuyện",
+				"operationId": "tTBTThNgBOCuCTrChuyN",
+				"summary": "Tắt/Bật thông báo cuộc trò chuyện"
+			}
+		},
+		"/chat-room/create": {
+			"post": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "receiveUserId",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Chat"
+				],
+				"description": "Tạo phòng chat (Khi chưa nhắn với nhau bao giờ thì gọi)",
+				"operationId": "tOPhNgChatKhiChANhNVINhauBaoGiThGI",
+				"summary": "Tạo phòng chat (Khi chưa nhắn với nhau bao giờ thì gọi)"
+			}
+		},
+		"/chat-room/read": {
+			"post": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "chatRoomId",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "isRead",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Chat"
+				],
+				"description": "Đánh dấu là đã nhấn vào cuộc trò chuyện (gọi khi nhấn vào cuộc trò chuyện)",
+				"operationId": "nhDULNhNVOCuCTrChuyNGIKhiNhNVOCuCTrChuyN",
+				"summary": "Đánh dấu là đã nhấn vào cuộc trò chuyện (gọi khi nhấn vào cuộc trò chuyện)"
+			}
+		},
+		"/exercises-category": {
+			"get": {
+				"parameters": [
+					{
+						"in": "query",
+						"name": "typeId",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"JumpFit"
+				],
+				"description": "Danh mục (Lớp học Yoga, Lớp học Gym)",
+				"operationId": "danhMCLPHCYogaLPHCGym",
+				"summary": "Danh mục (Lớp học Yoga, Lớp học Gym)"
+			}
+		},
+		"/exercises/3": {
+			"get": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"JumpFit"
+				],
+				"description": "Bài tập",
+				"operationId": "bITP",
+				"summary": "Bài tập"
+			}
+		},
+		"/file/upload": {
+			"post": {
+				"consumes": [
+					"multipart/form-data"
+				],
+				"parameters": [
+					{
+						"format": "binary",
+						"in": "formData",
+						"name": "file",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Upload file"
+				],
+				"description": "Upload lấy link",
+				"operationId": "uploadLYLink",
+				"summary": "Upload lấy link"
+			}
+		},
+		"/follow": {
+			"post": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "following_id",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Theo dõi"
+				],
+				"description": "Theo dõi",
+				"operationId": "theoDI",
+				"summary": "Theo dõi"
+			}
+		},
+		"/follow/count-follow": {
+			"get": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Theo dõi"
+				],
+				"description": "Số ngừoi theo dõi/ đang theo dõi",
+				"operationId": "sNgOiTheoDIAngTheoDI",
+				"summary": "Số ngừoi theo dõi/ đang theo dõi"
+			}
+		},
+		"/follow/follower": {
+			"get": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Theo dõi"
+				],
+				"description": "Danh sách đang theo dõi",
+				"operationId": "danhSChAngTheoDI",
+				"summary": "Danh sách đang theo dõi"
+			}
+		},
+		"/follow/unfollow": {
+			"post": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "following_id",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Theo dõi"
+				],
+				"description": "Bỏ theo dõi",
+				"operationId": "bTheoDI",
+				"summary": "Bỏ theo dõi"
+			}
+		},
+		"/game": {
+			"get": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"JumpFun"
+				],
+				"description": "Danh sách các game mới",
+				"operationId": "danhSChCCGame",
+				"summary": "Danh sách các game mới"
+			}
+		},
+		"/game/hot": {
+			"get": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"JumpFun"
+				],
+				"description": "Danh sách các game hot",
+				"operationId": "danhSChCCGameHot",
+				"summary": "Danh sách các game hot"
+			}
+		},
+		"/game-history": {
+			"get": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"JumpFun"
+				],
+				"description": "Lịch sử chơi game",
+				"operationId": "lichSChGame",
+				"summary": "Lịch sử chơi game"
+			},
+			"post": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "gameId",
+						"type": "number"
+					},
+					{
+						"in": "formData",
+						"name": "point",
+						"type": "number"
+					},
+					{
+						"in": "formData",
+						"name": "startTime",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "endTime",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"JumpFun"
+				],
+				"description": "Thêm lịch sử",
+				"operationId": "themLicSuGame",
+				"summary": "Thêm lịch sử"
+			}
+		},
+		"/game-history/1": {
+			"get": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"JumpFun"
+				],
+				"description": "Lịch sử chơi game theo từng game",
+				"operationId": "themLicSuGame",
+				"summary": "Lịch sử chơi game theo từng game"
+			}
+		},
+		"/instruction/policy-terms": {
+			"get": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Điều khoản chính sách"
+				],
+				"description": "Điều khoản chính sách",
+				"operationId": "iUKhoNChNhSCh",
+				"summary": "Điều khoản chính sách"
+			}
+		},
+		"/instruction/practice": {
+			"get": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Hướng dẫn"
+				],
+				"description": "Hướng dẫn tập luyện",
+				"operationId": "hNgDNTPLuyN",
+				"summary": "Hướng dẫn tập luyện"
+			}
+		},
+		"/instruction/use": {
+			"get": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Hướng dẫn"
+				],
+				"description": "Hướng dẫn sử dụng ứng dụng",
+				"operationId": "hNgDNSDNgNgDNg",
+				"summary": "Hướng dẫn sử dụng ứng dụng"
+			}
+		},
+		"/message/14": {
+			"get": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "page",
+						"type": "string"
+					},
+					{
+						"in": "query",
+						"name": "pageSize",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Chat"
+				],
+				"description": "Lấy danh sách tin nhắn",
+				"operationId": "lYDanhSChTinNhN",
+				"summary": "Lấy danh sách tin nhắn"
+			}
+		},
+		"/message/read-messages": {
+			"post": {
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"schema": {
+							"properties": {
+								"messageIds": {
+									"example": [
+										33,
+										32
+									],
+									"items": {
+										"example": 33,
+										"type": "number"
+									},
+									"type": "array"
+								},
+								"roomId": {
+									"example": 13,
+									"type": "number"
+								}
+							},
+							"type": "object"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Chat"
+				],
+				"description": "Đánh dấu đã đọc tin nhắn",
+				"operationId": "nhDUCTinNhN",
+				"summary": "Đánh dấu đã đọc tin nhắn"
+			}
+		},
+		"/message/send": {
+			"post": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "chatRoomId",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "linkFile",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "message",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "time",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "type",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Chat"
+				],
+				"description": "Gửi tin nhắn",
+				"operationId": "gITinNhN",
+				"summary": "Gửi tin nhắn"
+			}
+		},
+		"/metal": {
+			"get": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Thành tích"
+				],
+				"description": "Thành tích cá nhân",
+				"operationId": "thNhTChCNhN",
+				"summary": "Thành tích cá nhân"
+			}
+		},
+		"/noti": {
+			"get": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Thông báo"
+				],
+				"description": "Lấy danh sách thông báo",
+				"operationId": "lYDanhSChThNgBO",
+				"summary": "Lấy danh sách thông báo"
+			},
+			"post": {
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"schema": {
+							"properties": {
+								"content": {
+									"example": "Nếu bạn có logic quan trọng, bạn có thể viết bằng: C / Rust → biên dịch sang WebAssembly → gọi từ JavaScript.",
+									"type": "string"
+								},
+								"data": {
+									"properties": {
+										"data": {
+											"example": "Hello",
+											"type": "string"
+										}
+									},
+									"type": "object"
+								},
+								"image": {
+									"example": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWcu5FQyaxS9P_xHA4PzWA70s-vFzPoPJz-A&s",
+									"type": "string"
+								},
+								"title": {
+									"example": "Thông báo Test",
+									"type": "string"
+								},
+								"type": {
+									"example": "TEST",
+									"type": "string"
+								},
+								"userIds": {
+									"example": [
+										39
+									],
+									"items": {
+										"example": 39,
+										"type": "number"
+									},
+									"type": "array"
+								}
+							},
+							"type": "object"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Thông báo"
+				],
+				"description": "Tạo thông báo (Dùng cho Admin test)",
+				"operationId": "tOThNgBODNgChoAdminTest",
+				"summary": "Tạo thông báo (Dùng cho Admin test)"
+			}
+		},
+		"/noti/1": {
+			"delete": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Thông báo"
+				],
+				"description": "Xoá thông báo",
+				"operationId": "xoThNgBO",
+				"summary": "Xoá thông báo"
+			},
+			"get": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Thông báo"
+				],
+				"description": "Lấy chi tiết danh sách thông báo",
+				"operationId": "lYChiTiTDanhSChThNgBO",
+				"summary": "Lấy chi tiết danh sách thông báo"
+			}
+		},
+		"/noti/mark-all-read": {
+			"patch": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Thông báo"
+				],
+				"description": "Đánh dấu đã đọc tất cả",
+				"operationId": "nhDUCTTC",
+				"summary": "Đánh dấu đã đọc tất cả"
+			}
+		},
+		"/noti/mark-read/1": {
+			"patch": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Thông báo"
+				],
+				"description": "Đánh dấu đã đọc 1 cái",
+				"operationId": "nhDUC1CI",
+				"summary": "Đánh dấu đã đọc 1 cái"
+			}
+		},
+		"/personal-index": {
+			"get": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Chỉ số cơ thể"
+				],
+				"description": "Get",
+				"operationId": "get",
+				"summary": "Get"
+			}
+		},
+		"/personal-index/update": {
+			"post": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "height",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "round1",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "round2",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "round3",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Chỉ số cơ thể"
+				],
+				"description": "Update chỉ số",
+				"operationId": "updateChS",
+				"summary": "Update chỉ số"
+			}
+		},
+		"/stats": {
+			"get": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Lấy chuỗi lửa"
+				],
+				"description": "Lấy chuỗi lửa",
+				"operationId": "lYChuILA",
+				"summary": "Lấy chuỗi lửa"
+			}
+		},
+		"/type-exercises-category": {
+			"get": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"JumpFit"
+				],
+				"description": "Loại (Thư giãn, dãn cơ, vận động)",
+				"operationId": "loIThGiNDNCVNNg",
+				"summary": "Loại (Thư giãn, dãn cơ, vận động)"
+			}
+		},
+		"/user/2": {
+			"get": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"User"
+				],
+				"description": "Thông tin user",
+				"operationId": "thNgTinUser",
+				"summary": "Thông tin user"
+			}
+		},
+		"/user/change-password": {
+			"post": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "newPassword",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "password",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"User"
+				],
+				"description": "Đổi mật khẩu",
+				"operationId": "iMTKhU",
+				"summary": "Đổi mật khẩu"
+			}
+		},
+		"/user/list": {
+			"get": {
+				"parameters": [
+					{
+						"in": "query",
+						"name": "page",
+						"type": "string"
+					},
+					{
+						"in": "query",
+						"name": "pageSize",
+						"type": "string"
+					},
+					{
+						"in": "query",
+						"name": "phoneNumber",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"User"
+				],
+				"description": "Danh sách user",
+				"operationId": "danhSChUser",
+				"summary": "Danh sách user"
+			}
+		},
+		"/user/list/with-follow": {
+			"get": {
+				"parameters": [
+					{
+						"in": "query",
+						"name": "page",
+						"type": "string"
+					},
+					{
+						"in": "query",
+						"name": "pageSize",
+						"type": "string"
+					},
+					{
+						"in": "query",
+						"name": "phoneNumber",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"User"
+				],
+				"description": "Danh sách user (Kèm follow)",
+				"operationId": "danhSChUserKMFollow",
+				"summary": "Danh sách user (Kèm follow)"
+			}
+		},
+		"/user/me": {
+			"get": {
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"User"
+				],
+				"description": "Thông tin cá nhân",
+				"operationId": "thNgTinCNhN",
+				"summary": "Thông tin cá nhân"
+			}
+		},
+		"/user/me/update": {
+			"post": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "address",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "avatar",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "dateOfBith",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "email",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "fullName",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "gender",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"User"
+				],
+				"description": "Update thông tin cá nhân",
+				"operationId": "updateThNgTinCNhN",
+				"summary": "Update thông tin cá nhân"
+			}
+		},
+		"/workout": {
+			"get": {
+				"parameters": [
+					{
+						"in": "query",
+						"name": "page",
+						"type": "string"
+					},
+					{
+						"in": "query",
+						"name": "pageSize",
+						"type": "string"
+					},
+					{
+						"in": "query",
+						"name": "startDate",
+						"type": "string"
+					},
+					{
+						"in": "query",
+						"name": "endDate",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"User"
+				],
+				"description": "Lịch sử hoạt động",
+				"operationId": "lChSHoTNg",
+				"summary": "Lịch sử hoạt động"
+			},
+			"post": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "endTime",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "exercisesId",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "point",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "startTime",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"JumpFit"
+				],
+				"description": "Thêm kết quả tập",
+				"operationId": "thMKTQuTP",
+				"summary": "Thêm kết quả tập"
+			}
+		},
+		"/news-feeds": {
+			"get": {
+				"parameters": [
+					{
+						"in": "query",
+						"name": "page",
+						"type": "string"
+					},
+					{
+						"in": "query",
+						"name": "pageSize",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"NewsFeeds"
+				],
+				"description": "Danh sách tin tức",
+				"operationId": "dSTinTuc",
+				"summary": "Danh sách tin tức"
+			},
+			"post": {
+				"consumes": [
+					"application/x-www-form-urlencoded"
+				],
+				"parameters": [
+					{
+						"in": "formData",
+						"name": "content",
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "image",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"NewsFeeds"
+				],
+				"description": "Tạo tin tức",
+				"operationId": "taoTinTuc",
+				"summary": "Tạo tin tức"
+			}
+		},
+		"/news-feeds/like": {
+			"post": {
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"schema": {
+							"properties": {
+								"newsFeedId": {
+									"example": 2,
+									"type": "number"
+								},
+								"isLike": {
+									"example": true,
+									"type": "boolean"
+								}
+							},
+							"type": "object"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"NewsFeeds"
+				],
+				"description": "Thịch tin tức",
+				"operationId": "likeTinTuc",
+				"summary": "Thịch tin tức"
+			}
+		},
+		"/workout/1": {
+			"get": {
+				"parameters": [
+					{
+						"in": "query",
+						"name": "page",
+						"type": "string"
+					},
+					{
+						"in": "query",
+						"name": "pageSize",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"JumpFit"
+				],
+				"description": "Nhật kí hoạt động",
+				"operationId": "nhTKHoTNg",
+				"summary": "Nhật kí hoạt động"
+			}
+		}
+	},
+	"tags": [
+		{
+			"name": "Auth"
+		},
+		{
+			"name": "Chỉ số cơ thể"
+		},
+		{
+			"name": "JumpFit"
+		},
+		{
+			"name": "Lấy chuỗi lửa"
+		},
+		{
+			"name": "Theo dõi"
+		},
+		{
+			"name": "Thành tích"
+		},
+		{
+			"name": "Upload file"
+		},
+		{
+			"name": "User"
+		},
+		{
+			"name": "JumpFun"
+		},
+		{
+			"name": "Chat"
+		},
+		{
+			"name": "Thông báo"
+		},
+		{
+			"name": "Hướng dẫn"
+		},
+		{
+			"name": "Điều khoản chính sách"
+		}
+	]
+}

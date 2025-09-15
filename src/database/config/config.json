@@ -1,0 +1,17 @@
+{
+  "development": {
+    "username": "root",
+    "password": "hell@Thanh102",
+    "database": "xskt",
+    "host": "localhost",
+    "dialect": "mysql",
+    "timezone": "+07:00"
+  },
+  "production": {
+    "username": "root",
+    "password": "hell@Thanh102",
+    "database": "xskt",
+    "host": "3306",
+    "dialect": "mysql"
+  }
+}
