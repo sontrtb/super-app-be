@@ -18,4 +18,21 @@ async function getNewsNewController(
   res.status(200).json(response);
 }
 
-export { getNewsNewController };
+async function getNewsCaregoryController(
+  req: Request<unknown, unknown, unknown, { categoryId?: string }>,
+  res: Response<IDataResponse>,
+) {
+  const { categoryId } = req.query;
+
+  const response = await fetchNews(
+    `https://vnexpress.net/rss/${categoryId}.rss`,
+  );
+
+  if (response?.status === EStatus.ERROR) {
+    res.status(400).json(response);
+    return;
+  }
+  res.status(200).json(response);
+}
+
+export { getNewsNewController, getNewsCaregoryController };

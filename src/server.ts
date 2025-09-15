@@ -1,8 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { fetchNews } from './crawler/news';
-
 import express from 'express';
 import { createServer } from 'http';
 import cors from 'cors';
@@ -31,5 +29,3 @@ routers(app);
 httpServer.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
-
-fetchNews('https://vnexpress.net/rss/tin-moi-nhat.rss');

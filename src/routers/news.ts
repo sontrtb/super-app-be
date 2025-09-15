@@ -1,8 +1,12 @@
 import { Router } from 'express';
-import { getNewsNewController } from '../controllers/news-controller';
+import {
+  getNewsCaregoryController,
+  getNewsNewController,
+} from '../controllers/news-controller';
 
 const news = Router();
 
 news.get('/new', getNewsNewController);
+news.get('/category', getNewsCaregoryController);
 
 export default news;
